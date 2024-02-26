@@ -1,4 +1,4 @@
-package _03_JSON.session00.api_object_model;
+package _03_JSON.session00.entity;
 
 import java.util.List;
 
