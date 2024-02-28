@@ -1,7 +1,5 @@
 package _03_JSON.session00;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
@@ -13,7 +11,7 @@ import org.junit.jupiter.api.Test;
 import _03_JSON.session00.api_object_model.JSON_ObjectModelHandler;
 import _03_JSON.session00.entity.Person;
 
-class JSON_ObjectModelAPI {
+class JTC_JSON_ObjectModelAPI {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
