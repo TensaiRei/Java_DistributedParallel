@@ -44,21 +44,21 @@ public class JSON_StreamHandler {
 					if (stackObject.isEmpty()) {
 						person = new Person();
 						stackObject.push("person");
-						currentObject = "person";
+						currentObject = stackObject.peek();
 						break;
 					}
 					switch (keyName) {
 					case "address":
 						address = new Address();
 						stackObject.push("address");
-						currentObject = "address";
+						currentObject = stackObject.peek();
 						break;
 					}
 					switch (currentArray) {
 					case "phoneNumbers":
 						phoneNumber = new PhoneNumber();
 						stackObject.push("phoneNumber");
-						currentObject = "phoneNumber";
+						currentObject = stackObject.peek();
 						break;
 					}
 					break;
@@ -85,13 +85,13 @@ public class JSON_StreamHandler {
 					if (stackArray.isEmpty()) {
 						people = new ArrayList<Person>();
 						stackArray.push("people");
-						currentArray = "people";
+						currentArray = stackArray.peek();
 					}
 					switch (keyName) {
 					case "phoneNumbers":
 						phoneNumbers = new ArrayList<PhoneNumber>();
 						stackArray.push("phoneNumbers");
-						currentArray = "phoneNumbers";
+						currentArray = stackArray.peek();
 						break;
 					}
 					break;
