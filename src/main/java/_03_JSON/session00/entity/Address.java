@@ -1,12 +1,12 @@
 package _03_JSON.session00.entity;
 
 public class Address {
-	
+
 	private String streetAddress;
 	private String city;
 	private String state;
 	private int postalCode;
-	
+
 	public Address() {
 		super();
 	}
@@ -56,6 +56,5 @@ public class Address {
 		return "Address [streetAddress=" + streetAddress + ", city=" + city + ", state=" + state + ", postalCode="
 				+ postalCode + "]";
 	}
-	
-	
+
 }

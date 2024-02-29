@@ -3,13 +3,13 @@ package _03_JSON.session00.entity;
 import java.util.List;
 
 public class Person {
-	
+
 	private String firstName;
 	private String lastName;
 	private int age;
 	private Address address;
 	private List<PhoneNumber> phoneNumbers;
-	
+
 	public Person() {
 		super();
 	}
@@ -75,5 +75,5 @@ public class Person {
 		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + ", address=" + address
 				+ ", phoneNumbers=" + phoneNumbers + "]";
 	}
-	
+
 }

@@ -119,7 +119,7 @@ public class JSON_StreamHandler {
 						break;
 					case "city":
 						address.setCity(parser.getString());
-						break;	
+						break;
 					case "state":
 						address.setState(parser.getString());
 						break;

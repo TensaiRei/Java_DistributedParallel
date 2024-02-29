@@ -37,7 +37,7 @@ class JTC_JSON_ObjectModelAPI {
 		}
 	}
 
-	@Test 
+	@Test
 	void setPeopleToFile() {
 		List<Person> people = JSON_ObjectModelHandler.getListFromFile("data/_03_00/people.json");
 		JSON_ObjectModelHandler.setListToFile(people, "data/_03_00/people_new.json");

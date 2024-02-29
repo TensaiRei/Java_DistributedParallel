@@ -1,10 +1,10 @@
 package _03_JSON.session00.entity;
 
 public class PhoneNumber {
-	
+
 	private String type;
 	private String number;
-	
+
 	public PhoneNumber() {
 		super();
 	}
@@ -35,6 +35,5 @@ public class PhoneNumber {
 	public String toString() {
 		return "PhoneNumber [type=" + type + ", number=" + number + "]";
 	}
-	
-	
+
 }
