@@ -1,7 +1,5 @@
 package _03_JSON.session01;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.util.List;
 
 import org.junit.jupiter.api.AfterAll;
@@ -36,13 +34,15 @@ class JTC_JSON_ObjectModelAPI {
 		Employee employee_1 = new Employee(1, "John", 3000);
 		Employee employee_2 = new Employee(2, "Mary", 4000);
 		String filePath = "data/_03_01/Employee.json";
-		JSON_ObjectModelHandler.write(List.of(employee_1, employee_2), filePath);
+		JSON_ObjectModelHandler.write(List.of(employee_1, employee_2),
+				filePath);
 	}
-	
+
 	@Test
 	void readEmployee() {
-		List<Employee> list = JSON_ObjectModelHandler.read("data/_03_01/Employee.json");
-		for(Employee thisEmployee : list) {
+		List<Employee> list = JSON_ObjectModelHandler
+				.read("data/_03_01/Employee.json");
+		for (Employee thisEmployee : list) {
 			System.out.println(thisEmployee);
 		}
 	}

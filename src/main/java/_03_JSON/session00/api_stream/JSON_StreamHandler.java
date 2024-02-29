@@ -37,118 +37,118 @@ public class JSON_StreamHandler {
 				System.out.println(event);
 
 				switch (event) {
-				case KEY_NAME:
-					keyName = parser.getString();
-					break;
-				case START_OBJECT:
-					if (stackObject.isEmpty()) {
-						person = new Person();
-						stackObject.push("person");
-						currentObject = stackObject.peek();
+					case KEY_NAME :
+						keyName = parser.getString();
 						break;
-					}
-					switch (keyName) {
-					case "address":
-						address = new Address();
-						stackObject.push("address");
-						currentObject = stackObject.peek();
+					case START_OBJECT :
+						if (stackObject.isEmpty()) {
+							person = new Person();
+							stackObject.push("person");
+							currentObject = stackObject.peek();
+							break;
+						}
+						switch (keyName) {
+							case "address" :
+								address = new Address();
+								stackObject.push("address");
+								currentObject = stackObject.peek();
+								break;
+						}
+						switch (currentArray) {
+							case "phoneNumbers" :
+								phoneNumber = new PhoneNumber();
+								stackObject.push("phoneNumber");
+								currentObject = stackObject.peek();
+								break;
+						}
 						break;
-					}
-					switch (currentArray) {
-					case "phoneNumbers":
-						phoneNumber = new PhoneNumber();
-						stackObject.push("phoneNumber");
-						currentObject = stackObject.peek();
+					case END_OBJECT :
+						switch (currentObject) {
+							case "person" :
+								people.add(person);
+								stackObject.pop();
+								currentObject = "";
+								break;
+							case "address" :
+								person.setAddress(address);
+								stackObject.pop();
+								currentObject = stackObject.peek();
+								break;
+							case "phoneNumber" :
+								phoneNumbers.add(phoneNumber);
+								stackObject.pop();
+								currentObject = stackObject.peek();
+								break;
+						}
 						break;
-					}
-					break;
-				case END_OBJECT:
-					switch (currentObject) {
-					case "person":
-						people.add(person);
-						stackObject.pop();
-						currentObject = "";
+					case START_ARRAY :
+						if (stackArray.isEmpty()) {
+							people = new ArrayList<Person>();
+							stackArray.push("people");
+							currentArray = stackArray.peek();
+						}
+						switch (keyName) {
+							case "phoneNumbers" :
+								phoneNumbers = new ArrayList<PhoneNumber>();
+								stackArray.push("phoneNumbers");
+								currentArray = stackArray.peek();
+								break;
+						}
 						break;
-					case "address":
-						person.setAddress(address);
-						stackObject.pop();
-						currentObject = stackObject.peek();
+					case END_ARRAY :
+						switch (currentArray) {
+							case "people" :
+								return people;
+							case "phoneNumbers" :
+								person.setPhoneNumbers(phoneNumbers);
+								stackArray.pop();
+								currentArray = stackArray.peek();
+								break;
+						}
 						break;
-					case "phoneNumber":
-						phoneNumbers.add(phoneNumber);
-						stackObject.pop();
-						currentObject = stackObject.peek();
+					case VALUE_STRING :
+						switch (keyName) {
+							case "firstName" :
+								person.setFirstName(parser.getString());
+								break;
+							case "lastName" :
+								person.setLastName(parser.getString());
+								break;
+							case "streetAddress" :
+								address.setStreetAddress(parser.getString());
+								break;
+							case "city" :
+								address.setCity(parser.getString());
+								break;
+							case "state" :
+								address.setState(parser.getString());
+								break;
+							case "type" :
+								phoneNumber.setType(parser.getString());
+								break;
+							case "number" :
+								phoneNumber.setNumber(parser.getString());
+								break;
+						}
 						break;
-					}
-					break;
-				case START_ARRAY:
-					if (stackArray.isEmpty()) {
-						people = new ArrayList<Person>();
-						stackArray.push("people");
-						currentArray = stackArray.peek();
-					}
-					switch (keyName) {
-					case "phoneNumbers":
-						phoneNumbers = new ArrayList<PhoneNumber>();
-						stackArray.push("phoneNumbers");
-						currentArray = stackArray.peek();
+					case VALUE_NUMBER :
+						switch (keyName) {
+							case "age" :
+								person.setAge(parser.getInt());
+								break;
+							case "postalCode" :
+								address.setPostalCode(parser.getInt());
+								break;
+						}
 						break;
-					}
-					break;
-				case END_ARRAY:
-					switch (currentArray) {
-					case "people":
-						return people;
-					case "phoneNumbers":
-						person.setPhoneNumbers(phoneNumbers);
-						stackArray.pop();
-						currentArray = stackArray.peek();
+					case VALUE_NULL :
 						break;
-					}
-					break;
-				case VALUE_STRING:
-					switch (keyName) {
-					case "firstName":
-						person.setFirstName(parser.getString());
+					case VALUE_TRUE :
 						break;
-					case "lastName":
-						person.setLastName(parser.getString());
+					case VALUE_FALSE :
 						break;
-					case "streetAddress":
-						address.setStreetAddress(parser.getString());
+					default :
 						break;
-					case "city":
-						address.setCity(parser.getString());
-						break;
-					case "state":
-						address.setState(parser.getString());
-						break;
-					case "type":
-						phoneNumber.setType(parser.getString());
-						break;
-					case "number":
-						phoneNumber.setNumber(parser.getString());
-						break;
-					}
-					break;
-				case VALUE_NUMBER:
-					switch (keyName) {
-					case "age":
-						person.setAge(parser.getInt());
-						break;
-					case "postalCode":
-						address.setPostalCode(parser.getInt());
-						break;
-					}
-					break;
-				case VALUE_NULL:
-					break;
-				case VALUE_TRUE:
-					break;
-				case VALUE_FALSE:
-					break;
-				default:
-					break;
 				}
 			}
 

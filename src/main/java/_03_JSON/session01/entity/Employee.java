@@ -1,11 +1,11 @@
 package _03_JSON.session01.entity;
 
 public class Employee {
-	
+
 	private long id;
 	private String name;
 	private double salary;
-	
+
 	public long getId() {
 		return id;
 	}
@@ -24,21 +24,22 @@ public class Employee {
 	public void setSalary(double salary) {
 		this.salary = salary;
 	}
-	
+
 	public Employee() {
 		super();
 	}
-	
+
 	public Employee(long id, String name, double salary) {
 		super();
 		this.id = id;
 		this.name = name;
 		this.salary = salary;
 	}
-	
+
 	@Override
 	public String toString() {
-		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary + "]";
+		return "Employee [id=" + id + ", name=" + name + ", salary=" + salary
+				+ "]";
 	}
-	
+
 }

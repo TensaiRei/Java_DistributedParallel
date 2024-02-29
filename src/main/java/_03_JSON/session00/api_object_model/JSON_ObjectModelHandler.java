@@ -44,23 +44,28 @@ public class JSON_ObjectModelHandler {
 				person.setLastName(jsonObject.getString("lastName"));
 				person.setAge(jsonObject.getInt("age"));
 
-				JsonObject jsonObjectAddress = jsonObject.getJsonObject("address");
+				JsonObject jsonObjectAddress = jsonObject
+						.getJsonObject("address");
 				if (jsonObjectAddress != null) {
 					address = new Address();
-					address.setStreetAddress(jsonObjectAddress.getString("streetAddress"));
+					address.setStreetAddress(
+							jsonObjectAddress.getString("streetAddress"));
 					address.setCity(jsonObjectAddress.getString("city"));
 					address.setState(jsonObjectAddress.getString("state"));
-					address.setPostalCode(jsonObjectAddress.getInt("postalCode"));
+					address.setPostalCode(
+							jsonObjectAddress.getInt("postalCode"));
 
 					person.setAddress(address);
 				}
 
-				JsonArray jsonArrayPhoneNumbers = jsonObject.getJsonArray("phoneNumbers");
+				JsonArray jsonArrayPhoneNumbers = jsonObject
+						.getJsonArray("phoneNumbers");
 				if (jsonArrayPhoneNumbers != null) {
 					phoneNumbers = new ArrayList<PhoneNumber>();
 					for (JsonValue thisJsonArrayValue : jsonArrayPhoneNumbers) {
 						JsonObject jsonObjectPhoneNumber = (JsonObject) thisJsonArrayValue;
-						PhoneNumber phoneNumber = new PhoneNumber(jsonObjectPhoneNumber.getString("type"),
+						PhoneNumber phoneNumber = new PhoneNumber(
+								jsonObjectPhoneNumber.getString("type"),
 								jsonObjectPhoneNumber.getString("number"));
 						phoneNumbers.add(phoneNumber);
 					}
@@ -84,25 +89,35 @@ public class JSON_ObjectModelHandler {
 
 			for (Person thisPerson : people) {
 				Address address = thisPerson.getAddress();
-				JsonObjectBuilder jsonObjectAddressBuilder = Json.createObjectBuilder();
-				JsonObject jsonObjectAddress = jsonObjectAddressBuilder.add("streetAddress", address.getStreetAddress())
-						.add("city", address.getCity()).add("state", address.getState())
+				JsonObjectBuilder jsonObjectAddressBuilder = Json
+						.createObjectBuilder();
+				JsonObject jsonObjectAddress = jsonObjectAddressBuilder
+						.add("streetAddress", address.getStreetAddress())
+						.add("city", address.getCity())
+						.add("state", address.getState())
 						.add("postalCode", address.getPostalCode()).build();
 
-				JsonArrayBuilder jsonArrayPhoneNumberBuilder = Json.createArrayBuilder();
+				JsonArrayBuilder jsonArrayPhoneNumberBuilder = Json
+						.createArrayBuilder();
 				List<PhoneNumber> phoneNumbers = thisPerson.getPhoneNumbers();
 				for (PhoneNumber thisPhoneNumber : phoneNumbers) {
-					JsonObjectBuilder jsonObjectPhoneNumberBuilder = Json.createObjectBuilder();
+					JsonObjectBuilder jsonObjectPhoneNumberBuilder = Json
+							.createObjectBuilder();
 					JsonObject jsonObjectPhoneNumber = jsonObjectPhoneNumberBuilder
-							.add("type", thisPhoneNumber.getType()).add("number", thisPhoneNumber.getNumber()).build();
+							.add("type", thisPhoneNumber.getType())
+							.add("number", thisPhoneNumber.getNumber()).build();
 
 					jsonArrayPhoneNumberBuilder.add(jsonObjectPhoneNumber);
 				}
-				JsonArray jsonArrayPhoneNumber = jsonArrayPhoneNumberBuilder.build();
+				JsonArray jsonArrayPhoneNumber = jsonArrayPhoneNumberBuilder
+						.build();
 
-				JsonObject jsonObjectPerson = jsonObjectBuilder.add("firstName", thisPerson.getFirstName())
-						.add("lastName", thisPerson.getLastName()).add("age", thisPerson.getAge())
-						.add("address", jsonObjectAddress).add("phoneNumbers", jsonArrayPhoneNumber).build();
+				JsonObject jsonObjectPerson = jsonObjectBuilder
+						.add("firstName", thisPerson.getFirstName())
+						.add("lastName", thisPerson.getLastName())
+						.add("age", thisPerson.getAge())
+						.add("address", jsonObjectAddress)
+						.add("phoneNumbers", jsonArrayPhoneNumber).build();
 				jsonArrayBuilder.add(jsonObjectPerson);
 			}
 			JsonArray jsonArray = jsonArrayBuilder.build();

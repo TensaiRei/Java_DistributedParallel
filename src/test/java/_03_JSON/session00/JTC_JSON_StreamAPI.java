@@ -31,7 +31,8 @@ class JTC_JSON_StreamAPI {
 
 	@Test
 	void getPeopleFromFile() {
-		List<Person> people = JSON_StreamHandler.getListFromFile("data/_03_00/people.json");
+		List<Person> people = JSON_StreamHandler
+				.getListFromFile("data/_03_00/people.json");
 		System.out.println("Size: " + people.size());
 		for (Person thisPerson : people) {
 			System.out.println(thisPerson);

@@ -31,7 +31,8 @@ class JTC_JSON_ObjectModelAPI {
 
 	@Test
 	void getPeopleFromFile() {
-		List<Person> people = JSON_ObjectModelHandler.getListFromFile("data/_03_00/people.json");
+		List<Person> people = JSON_ObjectModelHandler
+				.getListFromFile("data/_03_00/people.json");
 		for (Person thisPerson : people) {
 			System.out.println(thisPerson);
 		}
@@ -39,7 +40,9 @@ class JTC_JSON_ObjectModelAPI {
 
 	@Test
 	void setPeopleToFile() {
-		List<Person> people = JSON_ObjectModelHandler.getListFromFile("data/_03_00/people.json");
-		JSON_ObjectModelHandler.setListToFile(people, "data/_03_00/people_new.json");
+		List<Person> people = JSON_ObjectModelHandler
+				.getListFromFile("data/_03_00/people.json");
+		JSON_ObjectModelHandler.setListToFile(people,
+				"data/_03_00/people_new.json");
 	}
 }
