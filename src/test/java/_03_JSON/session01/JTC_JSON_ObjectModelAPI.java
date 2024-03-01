@@ -42,9 +42,7 @@ class JTC_JSON_ObjectModelAPI {
 	void readEmployee() {
 		List<Employee> list = JSON_ObjectModelHandler
 				.read("data/_03_01/Employee.json");
-		for (Employee thisEmployee : list) {
-			System.out.println(thisEmployee);
-		}
+		list.stream().forEach(employee -> System.out.println(employee));
 	}
 
 }
