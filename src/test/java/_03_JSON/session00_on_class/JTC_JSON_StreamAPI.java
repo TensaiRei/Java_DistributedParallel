@@ -1,4 +1,4 @@
-package _03_JSON.session00;
+package _03_JSON.session00_on_class;
 
 import java.util.List;
 
@@ -8,10 +8,10 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import _03_JSON.session00_on_class.api_object_model.JSON_ObjectModelHandler;
+import _03_JSON.session00_on_class.api_stream.JSON_StreamHandler;
 import _03_JSON.session00_on_class.entity.Person;
 
-class JTC_JSON_ObjectModelAPI {
+class JTC_JSON_StreamAPI {
 
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
@@ -31,13 +31,14 @@ class JTC_JSON_ObjectModelAPI {
 
 	@Test
 	void getPeopleFromFile() {
-		List<Person> people = JSON_ObjectModelHandler.getListFromFile("data/_03_00/people.json");
+		List<Person> people = JSON_StreamHandler.getListFromFile("data/_03_00/people.json");
 		people.stream().forEach(System.out::println);
 	}
 
 	@Test
-	void setPeopleToFile() {
-		List<Person> people = JSON_ObjectModelHandler.getListFromFile("data/_03_00/people.json");
-		JSON_ObjectModelHandler.setListToFile(people, "data/_03_00/people_out_object_model.json");
+	void setListToFile() {
+		List<Person> people = JSON_StreamHandler.getListFromFile("data/_03_00/people.json");
+		JSON_StreamHandler.setListToFile(people, "data/_03_00/people_out_stream.json");
 	}
+
 }
