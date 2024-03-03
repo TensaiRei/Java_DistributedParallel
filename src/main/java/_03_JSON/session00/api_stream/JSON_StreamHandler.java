@@ -20,8 +20,7 @@ public class JSON_StreamHandler {
 
 	public static void setListToFile(List<Person> people, String filePath) {
 
-		try (JsonGenerator generator = Json
-				.createGenerator(new FileWriter(filePath))) {
+		try (JsonGenerator generator = Json.createGenerator(new FileWriter(filePath))) {
 
 			generator.writeStartArray(); 										// 0. Start Main Array
 
