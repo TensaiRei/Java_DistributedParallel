@@ -24,7 +24,7 @@ public class JSON_StreamHandler {
 		PhoneNumber phoneNumber = null;
 		List<PhoneNumber> phoneNumbers = null;
 
-		String keyName = "";
+		String keyName = new String();
 		Stack<String> stackObject = new Stack<String>();
 		Stack<String> stackArray = new Stack<String>();
 
