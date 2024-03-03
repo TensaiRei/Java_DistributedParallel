@@ -3,11 +3,11 @@ package _04_Neo4j.session00_on_class.entity;
 import java.util.Objects;
 
 public class Course {
-	
+
 	private String courseID;
 	private String name;
 	private int hours;
-	private String deptID;
+	private Department department;
 	
 	public String getCourseID() {
 		return courseID;
@@ -33,29 +33,30 @@ public class Course {
 		this.hours = hours;
 	}
 
-	public String getDeptID() {
-		return deptID;
+	public Department getDepartment() {
+		return department;
 	}
 
-	public void setDeptID(String deptID) {
-		this.deptID = deptID;
+	public void setDepartment(Department department) {
+		this.department = department;
 	}
 
 	public Course() {
 		super();
 	}
 
-	public Course(String courseID, String name, int hours, String deptID) {
+	public Course(String courseID, String name, int hours, Department department) {
 		super();
 		this.courseID = courseID;
 		this.name = name;
 		this.hours = hours;
-		this.deptID = deptID;
+		this.department = department;
 	}
 
 	@Override
 	public String toString() {
-		return "Course [courseID=" + courseID + ", name=" + name + ", hours=" + hours + ", deptID=" + deptID + "]";
+		return "Course [courseID=" + courseID + ", name=" + name + ", hours=" + hours + ", department=" + department
+				+ "]";
 	}
 
 	@Override
