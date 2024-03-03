@@ -21,8 +21,7 @@ public class Person {
 		this.age = age;
 	}
 
-	public Person(String firstName, String lastName, int age, Address address,
-			List<PhoneNumber> phoneNumbers) {
+	public Person(String firstName, String lastName, int age, Address address, List<PhoneNumber> phoneNumbers) {
 		super();
 		this.firstName = firstName;
 		this.lastName = lastName;
@@ -73,9 +72,8 @@ public class Person {
 
 	@Override
 	public String toString() {
-		return "Person [firstName=" + firstName + ", lastName=" + lastName
-				+ ", age=" + age + ", address=" + address + ", phoneNumbers="
-				+ phoneNumbers + "]";
+		return "Person [firstName=" + firstName + ", lastName=" + lastName + ", age=" + age + ", address=" + address
+				+ ", phoneNumbers=" + phoneNumbers + "]";
 	}
 
 }

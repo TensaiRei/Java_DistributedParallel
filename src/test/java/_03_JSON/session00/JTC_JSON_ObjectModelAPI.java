@@ -31,16 +31,13 @@ class JTC_JSON_ObjectModelAPI {
 
 	@Test
 	void getPeopleFromFile() {
-		List<Person> people = JSON_ObjectModelHandler
-				.getListFromFile("data/_03_00/people.json");
+		List<Person> people = JSON_ObjectModelHandler.getListFromFile("data/_03_00/people.json");
 		people.stream().forEach(System.out::println);
 	}
 
 	@Test
 	void setPeopleToFile() {
-		List<Person> people = JSON_ObjectModelHandler
-				.getListFromFile("data/_03_00/people.json");
-		JSON_ObjectModelHandler.setListToFile(people,
-				"data/_03_00/people_out_object_model.json");
+		List<Person> people = JSON_ObjectModelHandler.getListFromFile("data/_03_00/people.json");
+		JSON_ObjectModelHandler.setListToFile(people, "data/_03_00/people_out_object_model.json");
 	}
 }

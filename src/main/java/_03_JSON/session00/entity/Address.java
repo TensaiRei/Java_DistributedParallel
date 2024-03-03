@@ -11,8 +11,7 @@ public class Address {
 		super();
 	}
 
-	public Address(String streetAddress, String city, String state,
-			int postalCode) {
+	public Address(String streetAddress, String city, String state, int postalCode) {
 		super();
 		this.streetAddress = streetAddress;
 		this.city = city;
@@ -54,8 +53,8 @@ public class Address {
 
 	@Override
 	public String toString() {
-		return "Address [streetAddress=" + streetAddress + ", city=" + city
-				+ ", state=" + state + ", postalCode=" + postalCode + "]";
+		return "Address [streetAddress=" + streetAddress + ", city=" + city + ", state=" + state + ", postalCode="
+				+ postalCode + "]";
 	}
 
 }

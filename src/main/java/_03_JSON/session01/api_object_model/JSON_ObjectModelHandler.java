@@ -24,8 +24,7 @@ public class JSON_ObjectModelHandler {
 			JsonArrayBuilder jsonArrayBuilder = Json.createArrayBuilder();
 
 			for (Employee thisEmployee : list) {
-				JsonObjectBuilder jsonObjectBuilder = Json
-						.createObjectBuilder();
+				JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder();
 
 				jsonObjectBuilder.add("id", thisEmployee.getId())
 						.add("name", thisEmployee.getName())
@@ -50,8 +49,7 @@ public class JSON_ObjectModelHandler {
 			JsonArray jsonArray = reader.readArray();
 			for (JsonValue thisValue : jsonArray) {
 				JsonObject thisObject = (JsonObject) thisValue;
-				Employee employee = new Employee(thisObject.getInt("id"),
-						thisObject.getString("name"),
+				Employee employee = new Employee(thisObject.getInt("id"), thisObject.getString("name"),
 						thisObject.getJsonNumber("salary").doubleValue());
 				list.add(employee);
 			}
