@@ -25,8 +25,6 @@ public class JSON_StreamHandler {
 		List<PhoneNumber> phoneNumbers = null;
 
 		String keyName = "";
-		String currentObject = "";
-		String currentArray = "";
 		Stack<String> stackObject = new Stack<String>();
 		Stack<String> stackArray = new Stack<String>();
 
@@ -43,40 +41,34 @@ public class JSON_StreamHandler {
 						if (stackObject.isEmpty()) {
 							person = new Person();
 							stackObject.push("person");
-							currentObject = stackObject.peek();
 							break;
 						}
 						switch (keyName) {
 							case "address" :
 								address = new Address();
 								stackObject.push("address");
-								currentObject = stackObject.peek();
 								break;
 						}
-						switch (currentArray) {
+						switch (stackArray.peek()) {
 							case "phoneNumbers" :
 								phoneNumber = new PhoneNumber();
 								stackObject.push("phoneNumber");
-								currentObject = stackObject.peek();
 								break;
 						}
 						break;
 					case END_OBJECT :
-						switch (currentObject) {
+						switch (stackObject.peek()) {
 							case "person" :
 								people.add(person);
 								stackObject.pop();
-								currentObject = "";
 								break;
 							case "address" :
 								person.setAddress(address);
 								stackObject.pop();
-								currentObject = stackObject.peek();
 								break;
 							case "phoneNumber" :
 								phoneNumbers.add(phoneNumber);
 								stackObject.pop();
-								currentObject = stackObject.peek();
 								break;
 						}
 						break;
@@ -84,24 +76,21 @@ public class JSON_StreamHandler {
 						if (stackArray.isEmpty()) {
 							people = new ArrayList<Person>();
 							stackArray.push("people");
-							currentArray = stackArray.peek();
 						}
 						switch (keyName) {
 							case "phoneNumbers" :
 								phoneNumbers = new ArrayList<PhoneNumber>();
 								stackArray.push("phoneNumbers");
-								currentArray = stackArray.peek();
 								break;
 						}
 						break;
 					case END_ARRAY :
-						switch (currentArray) {
+						switch (stackArray.peek()) {
 							case "people" :
 								return people;
 							case "phoneNumbers" :
 								person.setPhoneNumbers(phoneNumbers);
 								stackArray.pop();
-								currentArray = stackArray.peek();
 								break;
 						}
 						break;
