@@ -1,4 +1,4 @@
-package _03_JSON.session00.api_stream;
+package _03_JSON.session00_on_class.api_stream;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -8,9 +8,9 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-import _03_JSON.session00.entity.Address;
-import _03_JSON.session00.entity.Person;
-import _03_JSON.session00.entity.PhoneNumber;
+import _03_JSON.session00_on_class.entity.Address;
+import _03_JSON.session00_on_class.entity.Person;
+import _03_JSON.session00_on_class.entity.PhoneNumber;
 import jakarta.json.Json;
 import jakarta.json.stream.JsonGenerator;
 import jakarta.json.stream.JsonParser;

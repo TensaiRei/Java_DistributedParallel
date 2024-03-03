@@ -1,4 +1,4 @@
-package _03_JSON.session00.entity;
+package _03_JSON.session00_on_class.entity;
 
 public class Address {
 

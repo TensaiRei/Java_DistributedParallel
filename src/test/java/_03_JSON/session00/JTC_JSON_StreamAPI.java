@@ -8,8 +8,8 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import _03_JSON.session00.api_stream.JSON_StreamHandler;
-import _03_JSON.session00.entity.Person;
+import _03_JSON.session00_on_class.api_stream.JSON_StreamHandler;
+import _03_JSON.session00_on_class.entity.Person;
 
 class JTC_JSON_StreamAPI {
 

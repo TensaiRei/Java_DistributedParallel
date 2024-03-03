@@ -1,4 +1,4 @@
-package _03_JSON.session00.api_object_model;
+package _03_JSON.session00_on_class.api_object_model;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
@@ -7,9 +7,9 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 
-import _03_JSON.session00.entity.Address;
-import _03_JSON.session00.entity.Person;
-import _03_JSON.session00.entity.PhoneNumber;
+import _03_JSON.session00_on_class.entity.Address;
+import _03_JSON.session00_on_class.entity.Person;
+import _03_JSON.session00_on_class.entity.PhoneNumber;
 import jakarta.json.Json;
 import jakarta.json.JsonArray;
 import jakarta.json.JsonArrayBuilder;
