@@ -8,7 +8,7 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
-import _03_JSON.session00_on_class.api_stream.JSON_StreamHandler;
+import _03_JSON.session00_on_class.api_stream.JSON_StreamAPI;
 import _03_JSON.session00_on_class.entity.Person;
 
 class JTC_JSON_StreamAPI {
@@ -31,14 +31,14 @@ class JTC_JSON_StreamAPI {
 
 	@Test
 	void getPeopleFromFile() {
-		List<Person> people = JSON_StreamHandler.getListFromFile("data/_03_00/people.json");
+		List<Person> people = JSON_StreamAPI.getListFromFile("data/_03_00/people.json");
 		people.stream().forEach(System.out::println);
 	}
 
 	@Test
 	void setListToFile() {
-		List<Person> people = JSON_StreamHandler.getListFromFile("data/_03_00/people.json");
-		JSON_StreamHandler.setListToFile(people, "data/_03_00/people_out_stream.json");
+		List<Person> people = JSON_StreamAPI.getListFromFile("data/_03_00/people.json");
+		JSON_StreamAPI.setListToFile(people, "data/_03_00/people_out_stream.json");
 	}
 
 }

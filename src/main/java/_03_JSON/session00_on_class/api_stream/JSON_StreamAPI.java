@@ -16,7 +16,7 @@ import jakarta.json.stream.JsonGenerator;
 import jakarta.json.stream.JsonParser;
 import jakarta.json.stream.JsonParser.Event;
 
-public class JSON_StreamHandler {
+public class JSON_StreamAPI {
 
 	public static void setListToFile(List<Person> people, String filePath) {
 

@@ -19,7 +19,7 @@ import jakarta.json.JsonReader;
 import jakarta.json.JsonValue;
 import jakarta.json.JsonWriter;
 
-public class JSON_ObjectModelHandler {
+public class JSON_ObjectModelAPI {
 
 	public static void setListToFile(List<Person> people, String filePath) {
 		try (JsonWriter writer = Json.createWriter(new FileWriter(filePath))) {
