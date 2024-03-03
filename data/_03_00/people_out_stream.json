@@ -1,0 +1,102 @@
+[
+	{
+		"firstName": "John",
+		"lastName": "Smith",
+		"age": 25,
+		"address": {
+			"city": "New York",
+			"state": "NY",
+			"postalCode": 10021
+		},
+		"phoneNumbers": [
+			{
+				"type": "home",
+				"number": "212 555-1234"
+			},
+			{
+				"type": "fax",
+				"number": "646 555-4567"
+			}
+		]
+	},
+	{
+		"firstName": "Jane",
+		"lastName": "Doe",
+		"age": 30,
+		"address": {
+			"city": "Los Angeles",
+			"state": "CA",
+			"postalCode": 90001
+		},
+		"phoneNumbers": [
+			{
+				"type": "mobile",
+				"number": "213 555-7890"
+			},
+			{
+				"type": "work",
+				"number": "310 555-5678"
+			}
+		]
+	},
+	{
+		"firstName": "Alice",
+		"lastName": "Johnson",
+		"age": 22,
+		"address": {
+			"city": "Chicago",
+			"state": "IL",
+			"postalCode": 60601
+		},
+		"phoneNumbers": [
+			{
+				"type": "home",
+				"number": "312 555-4321"
+			},
+			{
+				"type": "work",
+				"number": "312 555-8765"
+			}
+		]
+	},
+	{
+		"firstName": "Bob",
+		"lastName": "Williams",
+		"age": 28,
+		"address": {
+			"city": "Houston",
+			"state": "TX",
+			"postalCode": 77002
+		},
+		"phoneNumbers": [
+			{
+				"type": "mobile",
+				"number": "713 555-1111"
+			},
+			{
+				"type": "fax",
+				"number": "713 555-2222"
+			}
+		]
+	},
+	{
+		"firstName": "Eva",
+		"lastName": "Brown",
+		"age": 35,
+		"address": {
+			"city": "Miami",
+			"state": "FL",
+			"postalCode": 33101
+		},
+		"phoneNumbers": [
+			{
+				"type": "home",
+				"number": "305 555-7777"
+			},
+			{
+				"type": "work",
+				"number": "305 555-8888"
+			}
+		]
+	}
+]

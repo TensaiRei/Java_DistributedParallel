@@ -36,4 +36,12 @@ class JTC_JSON_StreamAPI {
 		people.stream().forEach(System.out::println);
 	}
 
+	@Test
+	void setListToFile() {
+		List<Person> people = JSON_StreamHandler
+				.getListFromFile("data/_03_00/people.json");
+		JSON_StreamHandler.setListToFile(people,
+				"data/_03_00/people_out_stream.json");
+	}
+
 }

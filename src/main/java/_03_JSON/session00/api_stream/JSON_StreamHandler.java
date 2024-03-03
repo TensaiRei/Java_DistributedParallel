@@ -2,6 +2,8 @@ package _03_JSON.session00.api_stream;
 
 import java.io.FileNotFoundException;
 import java.io.FileReader;
+import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
@@ -10,10 +12,51 @@ import _03_JSON.session00.entity.Address;
 import _03_JSON.session00.entity.Person;
 import _03_JSON.session00.entity.PhoneNumber;
 import jakarta.json.Json;
+import jakarta.json.stream.JsonGenerator;
 import jakarta.json.stream.JsonParser;
 import jakarta.json.stream.JsonParser.Event;
 
 public class JSON_StreamHandler {
+
+	public static void setListToFile(List<Person> people, String filePath) {
+
+		try (JsonGenerator generator = Json.createGenerator(new FileWriter(filePath))) {
+
+			generator.writeStartArray(); 									// 0. Start Main Array
+
+			for (Person thisPerson : people) {
+
+				generator.writeStartObject() 								// 1. Start Person Object
+						.write("firstName", thisPerson.getFirstName())
+						.write("lastName", thisPerson.getLastName())
+						.write("age", thisPerson.getAge());
+
+				Address address = thisPerson.getAddress();
+				generator.writeStartObject("address") 						// 2. Start Address Object
+						.write("city", address.getCity())
+						.write("state", address.getState())
+						.write("postalCode", address.getPostalCode())
+						.writeEnd(); 										// 2. End Address Object
+
+				List<PhoneNumber> phoneNumbers = thisPerson.getPhoneNumbers();
+				generator.writeStartArray("phoneNumbers"); 					// 3. Start PhoneNumbers Array
+				for (PhoneNumber thisPhoneNumber : phoneNumbers) {
+					generator.writeStartObject() 							// 4. Start PhoneNumber Object
+							.write("type", thisPhoneNumber.getType())
+							.write("number", thisPhoneNumber.getNumber())
+							.writeEnd(); 									// 4. End PhoneNumber Object
+				}
+				generator.writeEnd(); 										// 3. End PhoneNumbers Array
+				
+				generator.writeEnd(); 										// 1. End Person Object
+			}
+
+			generator.writeEnd(); 											// 0. End Main Array
+
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
 
 	public static List<Person> getListFromFile(String filePath) {
 

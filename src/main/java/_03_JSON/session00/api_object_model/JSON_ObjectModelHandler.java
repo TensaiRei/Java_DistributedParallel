@@ -25,7 +25,6 @@ public class JSON_ObjectModelHandler {
 		try (JsonWriter writer = Json.createWriter(new FileWriter(filePath))) {
 
 			JsonArrayBuilder jsonArrayBuilder = Json.createArrayBuilder();
-			JsonObjectBuilder jsonObjectBuilder = Json.createObjectBuilder();
 
 			for (Person thisPerson : people) {
 				Address address = thisPerson.getAddress();
@@ -52,6 +51,8 @@ public class JSON_ObjectModelHandler {
 				JsonArray jsonArrayPhoneNumber = jsonArrayPhoneNumberBuilder
 						.build();
 
+				JsonObjectBuilder jsonObjectBuilder = Json
+						.createObjectBuilder();
 				JsonObject jsonObjectPerson = jsonObjectBuilder
 						.add("firstName", thisPerson.getFirstName())
 						.add("lastName", thisPerson.getLastName())
