@@ -26,6 +26,13 @@
 			<version>5.10.2</version>
 			<scope>test</scope>
 		</dependency>
+		<!--
+		https://mvnrepository.com/artifact/org.neo4j.driver/neo4j-java-driver -->
+		<dependency>
+			<groupId>org.neo4j.driver</groupId>
+			<artifactId>neo4j-java-driver</artifactId>
+			<version>5.18.0</version>
+		</dependency>
 
 	</dependencies>
 </project>
