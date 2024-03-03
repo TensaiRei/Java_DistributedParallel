@@ -20,38 +20,40 @@ public class JSON_StreamHandler {
 
 	public static void setListToFile(List<Person> people, String filePath) {
 
-		try (JsonGenerator generator = Json.createGenerator(new FileWriter(filePath))) {
+		try (JsonGenerator generator = Json
+				.createGenerator(new FileWriter(filePath))) {
 
-			generator.writeStartArray(); 									// 0. Start Main Array
+			generator.writeStartArray(); 										// 0. Start Main Array
 
 			for (Person thisPerson : people) {
 
-				generator.writeStartObject() 								// 1. Start Person Object
+				generator.writeStartObject() 									// 1. Start Person Object
 						.write("firstName", thisPerson.getFirstName())
 						.write("lastName", thisPerson.getLastName())
 						.write("age", thisPerson.getAge());
 
 				Address address = thisPerson.getAddress();
-				generator.writeStartObject("address") 						// 2. Start Address Object
+				generator.writeStartObject("address") 							// 2. Start Address Object
+						.write("streetAddress", address.getStreetAddress())
 						.write("city", address.getCity())
 						.write("state", address.getState())
 						.write("postalCode", address.getPostalCode())
-						.writeEnd(); 										// 2. End Address Object
+						.writeEnd(); 											// 2. End Address Object
 
 				List<PhoneNumber> phoneNumbers = thisPerson.getPhoneNumbers();
-				generator.writeStartArray("phoneNumbers"); 					// 3. Start PhoneNumbers Array
+				generator.writeStartArray("phoneNumbers"); 						// 3. Start PhoneNumbers Array
 				for (PhoneNumber thisPhoneNumber : phoneNumbers) {
-					generator.writeStartObject() 							// 4. Start PhoneNumber Object
+					generator.writeStartObject() 								// 4. Start PhoneNumber Object
 							.write("type", thisPhoneNumber.getType())
 							.write("number", thisPhoneNumber.getNumber())
-							.writeEnd(); 									// 4. End PhoneNumber Object
+							.writeEnd(); 										// 4. End PhoneNumber Object
 				}
-				generator.writeEnd(); 										// 3. End PhoneNumbers Array
-				
-				generator.writeEnd(); 										// 1. End Person Object
+				generator.writeEnd(); 											// 3. End PhoneNumbers Array
+
+				generator.writeEnd(); 											// 1. End Person Object
 			}
 
-			generator.writeEnd(); 											// 0. End Main Array
+			generator.writeEnd(); 												// 0. End Main Array
 
 		} catch (IOException e) {
 			e.printStackTrace();

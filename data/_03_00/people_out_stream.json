@@ -4,6 +4,7 @@
 		"lastName": "Smith",
 		"age": 25,
 		"address": {
+			"streetAddress": "21 2nd Street",
 			"city": "New York",
 			"state": "NY",
 			"postalCode": 10021
@@ -24,6 +25,7 @@
 		"lastName": "Doe",
 		"age": 30,
 		"address": {
+			"streetAddress": "42 3rd Street",
 			"city": "Los Angeles",
 			"state": "CA",
 			"postalCode": 90001
@@ -44,6 +46,7 @@
 		"lastName": "Johnson",
 		"age": 22,
 		"address": {
+			"streetAddress": "63 4th Street",
 			"city": "Chicago",
 			"state": "IL",
 			"postalCode": 60601
@@ -64,6 +67,7 @@
 		"lastName": "Williams",
 		"age": 28,
 		"address": {
+			"streetAddress": "84 5th Street",
 			"city": "Houston",
 			"state": "TX",
 			"postalCode": 77002
@@ -84,6 +88,7 @@
 		"lastName": "Brown",
 		"age": 35,
 		"address": {
+			"streetAddress": "105 6th Street",
 			"city": "Miami",
 			"state": "FL",
 			"postalCode": 33101
