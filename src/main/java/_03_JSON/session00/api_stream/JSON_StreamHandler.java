@@ -34,7 +34,6 @@ public class JSON_StreamHandler {
 
 			while (parser.hasNext()) {
 				Event event = parser.next();
-				System.out.println(event);
 
 				switch (event) {
 					case KEY_NAME :
