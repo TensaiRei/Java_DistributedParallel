@@ -55,7 +55,7 @@ public class Course {
 
 	@Override
 	public String toString() {
-		return String.format("Course [courseID=%s, name=%s, hours=%s, deptID=%s]", courseID, name, hours, deptID);
+		return "Course [courseID=" + courseID + ", name=" + name + ", hours=" + hours + ", deptID=" + deptID + "]";
 	}
 
 	@Override

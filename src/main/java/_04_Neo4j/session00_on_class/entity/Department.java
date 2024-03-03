@@ -3,13 +3,13 @@ package _04_Neo4j.session00_on_class.entity;
 import java.util.Objects;
 
 public class Department {
-	
+
 	private String deptID;
 	private String name;
 	private String dean;
 	private String building;
 	private String room;
-	
+
 	public String getDeptID() {
 		return deptID;
 	}
@@ -65,8 +65,8 @@ public class Department {
 
 	@Override
 	public String toString() {
-		return String.format("Department [deptID=%s, name=%s, dean=%s, building=%s, room=%s]", deptID, name, dean,
-				building, room);
+		return "Department [deptID=" + deptID + ", name=" + name + ", dean=" + dean + ", building=" + building
+				+ ", room=" + room + "]";
 	}
 
 	@Override

@@ -45,7 +45,7 @@ public class Student {
 
 	@Override
 	public String toString() {
-		return String.format("Student [studentID=%s, name=%s, gpa=%s]", studentID, name, gpa);
+		return "Student [studentID=" + studentID + ", name=" + name + ", gpa=" + gpa + "]";
 	}
 
 	@Override
