@@ -4,7 +4,7 @@ public class Enrollment {
 
 	private Course course;
 	private Student student;
-	
+
 	public Course getCourse() {
 		return course;
 	}

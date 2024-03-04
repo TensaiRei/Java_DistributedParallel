@@ -8,7 +8,7 @@ public class Course {
 	private String name;
 	private int hours;
 	private Department department;
-	
+
 	public String getCourseID() {
 		return courseID;
 	}

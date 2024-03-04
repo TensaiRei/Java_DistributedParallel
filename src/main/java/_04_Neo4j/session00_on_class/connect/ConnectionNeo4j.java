@@ -8,7 +8,7 @@ public class ConnectionNeo4j {
 
 	private static ConnectionNeo4j instance = null;
 	private Driver driver = null;
-	
+
 	public static ConnectionNeo4j getInstance() {
 		if (instance == null)
 			return new ConnectionNeo4j();
@@ -29,7 +29,7 @@ public class ConnectionNeo4j {
 		String password = "12345678";
 		driver = GraphDatabase.driver(uri, AuthTokens.basic(username, password));
 	}
-	
+
 	public void close() {
 		driver.close();
 	}
