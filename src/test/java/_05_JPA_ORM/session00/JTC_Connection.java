@@ -15,8 +15,13 @@ import jakarta.persistence.Persistence;
 
 class JTC_Connection {
 
+	private static EntityManagerFactory factory;
+	private static EntityManager manager;
+
 	@BeforeAll
 	static void setUpBeforeClass() throws Exception {
+		factory = Persistence.createEntityManagerFactory("JPA_ORM_00 MSSQL");
+		manager = factory.createEntityManager();
 	}
 
 	@AfterAll
@@ -25,6 +30,8 @@ class JTC_Connection {
 
 	@BeforeEach
 	void setUp() throws Exception {
+		manager.close();
+		factory.close();
 	}
 
 	@AfterEach
@@ -33,23 +40,18 @@ class JTC_Connection {
 
 	@Test
 	void connection() {
-		EntityManagerFactory factory = Persistence.createEntityManagerFactory("Java_DistributedParallel MSSQL");
-		EntityManager manager = factory.createEntityManager();
+
 		EntityTransaction transaction = manager.getTransaction();
-		
+
 		try {
 			transaction.begin();
 			transaction.commit();
 		} catch (Exception e) {
 			transaction.rollback();
 			fail("Connection failed");
-		} finally {
-			manager.close();
-			factory.close();
 		}
-		
-		System.out.println("Connection successful!");
-		System.out.println(this.getClass());
+
+		System.out.println("Done!");
 	}
 
 }
