@@ -30,15 +30,15 @@ class JTC_JSON_StreamAPI {
 	}
 
 	@Test
-	void getPeopleFromFile() {
-		List<Person> people = JSON_StreamAPI.getListFromFile("data/_03_00/people.json");
-		people.stream().forEach(System.out::println);
+	void setListToFile() {
+		List<Person> people = JSON_StreamAPI.getListFromFile("data/_03_JSON/session00/people.json");
+		JSON_StreamAPI.setListToFile(people, "data/_03_JSON/session00/people_out_stream.json");
 	}
 
 	@Test
-	void setListToFile() {
-		List<Person> people = JSON_StreamAPI.getListFromFile("data/_03_00/people.json");
-		JSON_StreamAPI.setListToFile(people, "data/_03_00/people_out_stream.json");
+	void getPeopleFromFile() {
+		List<Person> people = JSON_StreamAPI.getListFromFile("data/_03_JSON/session00/people.json");
+		people.stream().forEach(System.out::println);
 	}
 
 }

@@ -30,14 +30,18 @@ class JTC_JSON_ObjectModelAPI {
 	}
 
 	@Test
-	void getPeopleFromFile() {
-		List<Person> people = JSON_ObjectModelAPI.getListFromFile("data/_03_00/people.json");
-		people.stream().forEach(System.out::println);
+	void setPeopleToFile() {
+		List<Person> people = JSON_ObjectModelAPI
+				.getListFromFile("data/_03_JSON/session00/people.json");
+		JSON_ObjectModelAPI.setListToFile(people,
+				"data/_03_JSON/session00/people_out_object_model.json");
 	}
 
 	@Test
-	void setPeopleToFile() {
-		List<Person> people = JSON_ObjectModelAPI.getListFromFile("data/_03_00/people.json");
-		JSON_ObjectModelAPI.setListToFile(people, "data/_03_00/people_out_object_model.json");
+	void getPeopleFromFile() {
+		List<Person> people = JSON_ObjectModelAPI
+				.getListFromFile("data/_03_JSON/session00/people.json");
+		people.stream().forEach(System.out::println);
 	}
+
 }
