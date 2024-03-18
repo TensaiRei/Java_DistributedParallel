@@ -47,7 +47,7 @@ public class ServerChat {
 			try (DataInputStream dis = new DataInputStream(socket.getInputStream());
 					DataOutputStream dos = new DataOutputStream(socket.getOutputStream());
 					Scanner scanner = new Scanner(System.in);) {
-				while (true) {
+				while (!socket.isClosed()) {
 					String messageReceived = dis.readUTF();
 					System.out.println("Client side chat: " + messageReceived);
 
