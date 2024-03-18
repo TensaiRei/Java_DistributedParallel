@@ -16,7 +16,7 @@ public class Server {
 			while (true) {
 				Socket socket = serverSocket.accept();
 				System.out.println("Server side: A client connected at "
-						+ socket.getInetAddress().toString().replaceAll("/", "") + ";"
+						+ socket.getInetAddress().toString().replaceAll("/", "") + ":"
 						+ socket.getPort());
 			}
 		} catch (Exception e) {

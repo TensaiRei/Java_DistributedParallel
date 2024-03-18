@@ -9,7 +9,7 @@ public class Client {
 	public static void main(String[] args) throws UnknownHostException, IOException, InterruptedException {
 
 		try (Socket socket = new Socket("192.168.1.124", 7878);) {
-			System.out.println("Clent side: Client connected at port 7878");
+			System.out.println("Client side: Client connected at port 7878");
 			while (socket.isConnected()) {
 				System.out.println("Client side: Client is still connected");
 				Thread.sleep(1000);
