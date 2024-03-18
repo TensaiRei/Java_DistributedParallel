@@ -1,7 +1,5 @@
 package _06_Networking.session00_on_class;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import java.io.IOException;
 import java.net.URI;
 import java.net.URL;
