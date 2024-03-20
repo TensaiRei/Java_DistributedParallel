@@ -13,7 +13,7 @@ import org.neo4j.driver.Transaction;
 
 import _04_Neo4j.session01_northwind.connect.ConnectionNeo4j;
 
-class JTC {
+class JTC_Initiate {
 
 	private static final String DB_NAME = "neo4j";
 	private static Driver driver;
@@ -46,17 +46,15 @@ class JTC {
 	
 	@Test
 	void testQuery() {
+		
 		Transaction transaction = session.beginTransaction();
-		
 		String query = "MATCH (n:Category) RETURN n LIMIT 25";
-		
 		Result result = transaction.run(query);
-		
 		result.stream().forEach(record -> {
 			System.out.println(record.get("n").asMap());
 		});
-		
 		transaction.commit();
+		
 	}
 
 }

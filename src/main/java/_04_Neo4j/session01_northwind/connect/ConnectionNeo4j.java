@@ -13,8 +13,6 @@ public class ConnectionNeo4j {
 	private static final String USERNAME = "neo4j";
 	private static final String PASSWORD = "123123123";
 
-	private static final Gson GSON = new GsonBuilder().create();
-
 	public static Driver getDriver() {
 		return GraphDatabase.driver(URI, AuthTokens.basic(USERNAME, PASSWORD));
 	}
