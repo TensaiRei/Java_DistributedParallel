@@ -11,7 +11,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 class JTC_Connection {
-
+	
 	private static EntityManagerFactory factory;
 	private static EntityManager manager;
 
@@ -37,9 +37,7 @@ class JTC_Connection {
 
 	@Test
 	void connection() {
-		String query = "SELECT 'Connection successful!'";
-		String result = manager.createNativeQuery(query).getSingleResult().toString();
-		System.out.println(result);
+		System.out.println("Factory status: " + factory.isOpen());
 	}
 
 }
