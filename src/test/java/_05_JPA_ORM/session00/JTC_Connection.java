@@ -1,7 +1,5 @@
 package _05_JPA_ORM.session00;
 
-import static org.junit.jupiter.api.Assertions.*;
-
 import org.junit.jupiter.api.AfterAll;
 import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeAll;
@@ -10,7 +8,6 @@ import org.junit.jupiter.api.Test;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityManagerFactory;
-import jakarta.persistence.EntityTransaction;
 import jakarta.persistence.Persistence;
 
 class JTC_Connection {
@@ -26,12 +23,13 @@ class JTC_Connection {
 
 	@AfterAll
 	static void tearDownAfterClass() throws Exception {
+		manager.close();
+		factory.close();
+		System.out.println("Connection closed!");
 	}
 
 	@BeforeEach
 	void setUp() throws Exception {
-		manager.close();
-		factory.close();
 	}
 
 	@AfterEach
@@ -40,18 +38,8 @@ class JTC_Connection {
 
 	@Test
 	void connection() {
-
-		EntityTransaction transaction = manager.getTransaction();
-
-		try {
-			transaction.begin();
-			transaction.commit();
-		} catch (Exception e) {
-			transaction.rollback();
-			fail("Connection failed");
-		}
-
-		System.out.println("Done!");
+		String query = "SELECT 'Connection successful!'";
+		System.out.println(manager.createNativeQuery(query).getSingleResult());
 	}
 
 }
