@@ -25,7 +25,6 @@ class JTC_Connection {
 	static void tearDownAfterClass() throws Exception {
 		manager.close();
 		factory.close();
-		System.out.println("Connection closed!");
 	}
 
 	@BeforeEach
@@ -39,7 +38,8 @@ class JTC_Connection {
 	@Test
 	void connection() {
 		String query = "SELECT 'Connection successful!'";
-		System.out.println(manager.createNativeQuery(query).getSingleResult());
+		String result = manager.createNativeQuery(query).getSingleResult().toString();
+		System.out.println(result);
 	}
 
 }
