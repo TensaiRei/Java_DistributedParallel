@@ -4,9 +4,6 @@ import org.neo4j.driver.AuthTokens;
 import org.neo4j.driver.Driver;
 import org.neo4j.driver.GraphDatabase;
 
-import com.google.gson.Gson;
-import com.google.gson.GsonBuilder;
-
 public class ConnectionNeo4j {
 
 	private static final String URI = "neo4j://localhost:7687";
