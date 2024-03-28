@@ -11,7 +11,7 @@ import jakarta.persistence.EntityManagerFactory;
 import jakarta.persistence.Persistence;
 
 class JTC_Connection {
-	
+
 	private static EntityManagerFactory factory;
 	private static EntityManager manager;
 

@@ -23,7 +23,7 @@ public class Class_ {
 	@Id
 	@Column(name = "class_id")
 	private String id;
-	
+
 	private String name;
 	private String noOfStudents;
 
